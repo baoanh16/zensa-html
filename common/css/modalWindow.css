@@ -1,0 +1,174 @@
+@charset "utf-8";
+
+/* 
+ * modalWindow.css
+ * 2011-07-02 
+ * 2013-10-09 Last Modified.
+ */
+
+body > #G_ModalWindowOverlay {
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	background-color: #000;
+	opacity: 0;
+	z-index: 1000;
+	margin: 0;
+	padding: 0;
+	-webkit-transition: all 0.2s ease;
+	   -moz-transition: all 0.2s ease;
+	        transition: all 0.2s ease;
+}
+
+
+body > #G_ModalWindowBody {
+	position: fixed;
+	top: 0;
+	left: 0;
+	margin:0 auto;
+	background-color: #fff;
+	z-index: 1002;
+	font-size: 12px;
+	font-family: Arial, Helvetica, sans-serif;
+	opacity: 0;
+	-webkit-transition: opacity 0.2s ease;
+	   -moz-transition: opacity 0.2s ease;
+	        transition: opacity 0.2s ease;
+}
+
+body > #G_ModalWindowBody.onload-complete {
+	opacity: 1;
+}
+
+/* iframe content */
+#G_ModalWindowBody iframe {
+	
+}
+
+/* ajax content */
+#G_ModalWindowBody #G_ModalWindowAjaxContent {
+	display: inline-block;
+	width: 100%;
+	height: 100%;
+	background-color: #fff;
+}
+
+/* UI */
+
+#G_ModalWindowNext,
+#G_ModalWindowPrev {
+	position: fixed;
+	top: 20px;
+	display: block;
+	width: 30px;
+	height: 60px;
+	line-height: 60px;
+	background-color: #fff;
+	cursor: pointer;
+}
+
+#G_ModalWindowNext {
+	right: 0px;
+	z-index: 2101;
+}
+
+#G_ModalWindowNext:before {
+	content: ">";
+	color: #000;
+	vertical-align: middle;
+	text-align: center;
+	margin: 0 auto;
+	display: block;
+}
+
+#G_ModalWindowPrev {
+	left: 0px;
+	z-index: 2102;
+}
+
+#G_ModalWindowPrev:before {
+	content: "<";
+	color: #000;
+	vertical-align: middle;
+	text-align: center;
+	margin: 0 auto;
+	display: block;
+}
+
+#G_ModalWindowCloseButton {
+	position: absolute;
+	right: -15px;
+	top: -12px;
+	cursor: pointer;
+	opacity: 1;
+	-webkit-transition: all 0.5s ease;
+	   -moz-transition: all 0.5s ease;
+	        transition: all 0.5s ease;
+	z-index: 6000;
+}
+
+#G_ModalWindowCloseButton:hover {
+	opacity: 0.7;
+}
+
+#indicatorContainer {
+	z-index: 1001;
+}
+
+
+
+
+/* -------------------------------------------- */
+/* Media queries */
+/* -------------------------------------------- */
+
+@media only screen and (max-width: 640px) /* min-width 641px */ {
+	
+	body > #G_ModalWindowBody {
+		max-width: 700px;
+		margin: 20px auto;
+		min-height: 0;
+		background-color: #f00;
+		-webkit-border-radius: 6px;
+		border-radius: 6px;
+		border: 3px solid #f00;
+	}
+	
+	body > #G_ModalWindowBody #G_ModalWindowAjaxContent {
+		max-width: 700px;
+		margin: 20px auto;
+		min-height: 0;
+		background-color: #f00;
+		-webkit-border-radius: 6px;
+		border-radius: 6px;
+	}
+}
+
+
+
+
+/* -------------------------------------------- */
+
+/* IE6 only */
+
+* html #G_ModalWindowNext,
+* html #G_ModalWindowPrev {
+	position: absolute;
+	display: "block";
+	width: 30px;
+	height: 60px;
+	background-color: #F00;
+	cursor: pointer;
+}
+
+* html #G_ModalWindowNext {
+	right: 0px;
+	z-index: 2101;
+}
+
+* html #G_ModalWindowPrev {
+	left: 0px;
+	z-index: 2102;
+}
